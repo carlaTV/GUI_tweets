@@ -56,7 +56,6 @@ with open('retrieved_tweets_spain.json','r') as f:
 
         button, values = window.LayoutAndRead(layout)
 
-        print type(sg.Cancel())
 
         with open('tagged_spain.json','a') as fout:
             writeMiddle(name,profile_geolocation,text,tweet_geolocation,RT,fout)
