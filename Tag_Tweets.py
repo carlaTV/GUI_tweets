@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import PySimpleGUI27 as sg
+import PySimpleGUI as sg
 import json
-from HTMLParser import HTMLParser
-import io
+
 
 def writeOpening():
     with open('tagged_spain.json', 'w') as fd:
@@ -42,10 +41,10 @@ with open('retrieved_tweets_spain.json','r') as f:
         RT = data[u'tweets'][i][u'RT'].encode('utf8')
 
         layout = [
-                  [sg.Text("User ID: "+name)],
-                  [sg.Text("Profile Geolocation: "+profile_geolocation)],
-                  [sg.Text("Tweet Geolocation: "+tweet_geolocation)],
-                  [sg.Text("Tweet: "+text)], [sg.Text('Geolocation', size=(15, 1)), sg.InputCombo(['1', '0'])],
+                  [sg.Text("User ID: "+str(name.decode('utf8')))],
+                  [sg.Text("Profile Geolocation: "+str(profile_geolocation.decode('utf8')))],
+                  [sg.Text("Tweet Geolocation: "+str(tweet_geolocation.decode('utf8')))],
+                  [sg.Text("Tweet: "+str(text.decode('utf8')))], [sg.Text('Geolocation', size=(15, 1)), sg.InputCombo(['1', '0'])],
                   [sg.Text('Relevance', size=(15, 1)), sg.InputCombo(['1', '0'])],
                   [sg.Text('Time', size=(15, 1)), sg.InputCombo(['f', 'p','none'])],
                   [sg.Text('Spain', size=(15, 1)), sg.InputCombo(['yes', 'no', 'undefined'])],
