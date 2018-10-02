@@ -26,13 +26,13 @@ def writeMiddle(username,place_profile,text, place_tweet,RT,fd):
 
 
 with open('retrieved_tweets_spain.json','r') as f:
-    #decoded_json = f.read().decode('string_escape').decode('latin1')
     data = json.load(f)
-    #data = json.loads(HTMLParser().unescape(data.body.decode('unicode-escape')))
     total = str(len(data[u'tweets']))
-    # for i in range(0,len(data[u'tweets'])):
     writeOpening()
-    for i in range(0,3):
+    skip = 0
+    # for i in range(skip, len(data[u'tweets'])):
+    i = 0
+    while i < len(data[u'tweets']):
         index = str(i+1)
         name = data[u'tweets'][i][u'username'].encode('utf8')
         profile_geolocation = data[u'tweets'][i][u'profile_geolocation'].encode('utf8')
@@ -49,6 +49,7 @@ with open('retrieved_tweets_spain.json','r') as f:
                   [sg.Text('Time', size=(15, 1)), sg.InputCombo(['f', 'p','none'])],
                   [sg.Text('Spain', size=(15, 1)), sg.InputCombo(['yes', 'no', 'undefined'])],
                   [sg.Text('Tweet '+ index +' of '+ total)],
+                  [sg.Text('Enter a tweet number: ')],[sg.Input()],[sg.OK()],
                   [sg.Submit(), sg.Cancel()]
                  ]
         window = sg.Window('Processing tweets')
@@ -58,6 +59,10 @@ with open('retrieved_tweets_spain.json','r') as f:
         if button == 'Cancel':
             break
 
+        i += 1
+
+        if values[4] != '':
+            i = int(values[4])
 
         with open('tagged_spain.json','a') as fout:
             writeMiddle(name,profile_geolocation,text,tweet_geolocation,RT,fout)
