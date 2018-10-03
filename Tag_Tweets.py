@@ -48,6 +48,7 @@ with open('retrieved_tweets_spain.json','r') as f:
                   [sg.Text("Tweet Geolocation: "+tweet_geolocation)],
                   [sg.Text("Tweet: "+text)],
                   [sg.Text(translator.translate(text, dest='ru').text)],
+                  [sg.Text(translator.translate(text, dest='en').text)],
                   [sg.Text('Geolocation', size=(15, 1)), sg.InputCombo(['1', '0'])],
                   [sg.Text('Relevance', size=(15, 1)), sg.InputCombo(['1', '0'])],
                   [sg.Text('Time', size=(15, 1)), sg.InputCombo(['f', 'p','none'])],

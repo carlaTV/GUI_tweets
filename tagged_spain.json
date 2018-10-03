@@ -1,13 +1,4 @@
 {
 	"tweets": [
-		{
-
-			"username" : " b' elperrobichi ' ",
-			"profile_geolocation" : "b'La calle'", 
-			"text" : " b' La\xc2\xa0soltera\xc2\xa0se\xc2\xa0afana\xc2\xa0en\xc2\xa0quehacer\xc2\xa0de\xc2\xa0ceniza,en\xc2\xa0labores\xc2\xa0sin\xc2\xa0m\xc3\xa9rito\xc2\xa0y\xc2\xa0sin\xc2\xa0fruto;y\xc2\xa0a\xc2\xa0la\xc2\xa0hora\xc2\xa0en\xc2\xa0que\xc2\xa0los\xc2\xa0deudos\xc2\xa0se\xc2\xa0congreganalrededor\xc2\xa0del\xc2\xa0fuego,\xc2\xa0del\xc2\xa0relato,se\xc2\xa0escucha\xc2\xa0el\xc2\xa0alarido ' ",
-			"tweet_geolocation" : " b' None ' ",
-			"RT" : " b' yes ' ",
-			"Tag ": "g1r1f"
-			"Spain ": "yes "
-"	]
+	]
 }
