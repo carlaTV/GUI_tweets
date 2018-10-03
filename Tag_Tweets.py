@@ -3,8 +3,9 @@
 
 import PySimpleGUI27 as sg
 import json
-from HTMLParser import HTMLParser
-import io
+from googletrans import Translator
+translator = Translator()
+
 
 def writeOpening():
     with open('tagged_spain.json', 'w') as fd:
@@ -45,7 +46,9 @@ with open('retrieved_tweets_spain.json','r') as f:
                   [sg.Text("User ID: "+name)],
                   [sg.Text("Profile Geolocation: "+profile_geolocation)],
                   [sg.Text("Tweet Geolocation: "+tweet_geolocation)],
-                  [sg.Text("Tweet: "+text)], [sg.Text('Geolocation', size=(15, 1)), sg.InputCombo(['1', '0'])],
+                  [sg.Text("Tweet: "+text)],
+                  [sg.Text(translator.translate(text, dest='ru').text)],
+                  [sg.Text('Geolocation', size=(15, 1)), sg.InputCombo(['1', '0'])],
                   [sg.Text('Relevance', size=(15, 1)), sg.InputCombo(['1', '0'])],
                   [sg.Text('Time', size=(15, 1)), sg.InputCombo(['f', 'p','none'])],
                   [sg.Text('Spain', size=(15, 1)), sg.InputCombo(['yes', 'no', 'undefined'])],
@@ -58,7 +61,6 @@ with open('retrieved_tweets_spain.json','r') as f:
 
         if button == 'Cancel':
             break
-
 
         with open('tagged_spain.json','a') as fout:
             writeMiddle(name,profile_geolocation,text,tweet_geolocation,RT,fout)
